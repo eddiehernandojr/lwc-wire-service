@@ -26,9 +26,10 @@ export default class WiredOpportunities extends LightningElement {
     // }
 
     handleChange(event) {
-        this.searchKey = event.target.value
+        this.searchKey = event.target.value;
     }
 
+    // TODO2: check if we can retrieve these values using Apex
     get options() {
         return [
             { label: 'Prospecting', value: 'Prospecting' },
