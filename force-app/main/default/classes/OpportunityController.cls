@@ -1,13 +1,13 @@
 public with sharing class OpportunityController {
     @AuraEnabled(cacheable=true)
     public static List<Opportunity> getOpportunityList(String searchKey) {
-        String criteria = '';
+        String noRowsFlag = '';
 
-        if (searchKey.trim() == '') {
-            criteria = 'AND 1=2';
+        if (searchKey == '') {
+            noRowsFlag = ' AND 1=2';
         }
 
-        String key = '%' + searchKey + '%' + criteria;
+        String key = '%' + searchKey + '%' + noRowsFlag;
        
         return [
             // TODO1: find a way to include Account.Name, Owner.Name
